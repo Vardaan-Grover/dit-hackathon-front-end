@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+/* Resetting basic styles for better compatibility */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styling for the landing page container */
+body,
+html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+#typed{
+    font-size: 3.2rem!important;
+    font-family: Outfit !important;
+}
+.type-red{ 
+    color: #f59090 !important;
+}
+/* Full-screen responsive background image */
+.landing-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('images/1.jpg'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat;
+  position: relative;
+  color: #ffffff; /* Text color over the background */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Optional: Adding an overlay effect for better text contrast */
+.landing-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+  z-index: 1;
+}
+
+/* Positioning content above overlay */
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Styling for headings, paragraphs, and button */
+.content h1 {
+  font-size: 3.2rem;
+  margin-bottom: -30px !important;
+  font-family: Outfit;
+}
+
+.header_top {
+  font-size: 3.2rem;
+  margin-top: 30px;
+  font-family: Outfit;
+}
+.header_para {
+    font-family: Outfit;
+    font-size: 1rem;
+}
+.content button {
+  margin-top: 20px;
+}
+
+/* Responsive typography and layout adjustments */
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 2.5rem;
+  }
+  .content p {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content h1 {
+    font-size: 2rem;
+  }
+  .content p {
+    font-size: 0.9rem;
+  }
+  .btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+.companies h2 {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* CSS for the marquee effect */
+.icon-marquee-container {
+  overflow: hidden; /* Hide overflowing icons */
+  white-space: nowrap; /* Keep icons in one line */
+  width: 100%; /* Full width container */
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.icon-marquee {
+  display: inline-block;
+  animation: marquee 10s linear infinite; /* Marquee animation */
+}
+
+/* Keyframes for the scrolling effect */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Optional: Style for the icons */
+.icon-marquee i {
+  font-size: 2rem;
+  color: #333;
+  margin-right: 20px;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+
+.section_3 h3 {
+  font-family: Outfit;
+  font-style: normal;
+  font-size: 3.2rem;
+  color: #ffffff;
+  padding-left: 50px;
+  padding-top: 120px;
+}
+
+.section_3 p {
+  font-family: Outfit;
+  font-style: normal;
+  color: #ffffff;
+  padding-left: 50px;
+  font-size: 1.5rem;
+}
+.section_3 img {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  margin-left: -13px;
+}
+
+.sec_3_color {
+  background-color: #f17575;
+}
+
+.section_4 h2 {
+  font-family: Outfit;
+  font-size: 3.2rem;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.section_4 p {
+  font-family: Outfit;
+  font-size: 2rem;
+}
+
+.section_5 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+/*---------------------------------------------------------------------*/
+
+@keyframes growProgressBar {
+  0%,
+  33% {
+    --pgPercentage: 0;
+  }
+  100% {
+    --pgPercentage: var(--value);
+  }
+}
+
+@property --pgPercentage {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+div[role='progressbar'] {
+  --size: 8rem;
+  --fg: #f58285;
+  --bg: #def;
+  --pgPercentage: var(--value);
+  animation: growProgressBar 3s 1 forwards;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+      closest-side,
+      white 80%,
+      transparent 0 99.9%,
+      white 0
+    ),
+    conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(var(--size) / 5);
+  color: var(--fg);
+}
+.progressbar_green {
+  --fg: #a8f7a8 !important;
+}
+
+div[role='progressbar']::before {
+  counter-reset: percentage var(--value);
+  content: counter(percentage) '%';
+}
+
+.progress_bar {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section_4 p {
+  font-size: 1.5rem;
+}
+.section_4 h3 {
+  margin-top: 50px;
+  font-size: 2rem;
+}
+
+.section_4 {
+  font-family: Outfit;
+}
+
+/*---------------------------------------------------------------------*/
+/* Container for each box */
+.image-box {
+  position: relative;
+  overflow: hidden;
+  border: 5px solid #ddd; /* 5px border */
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+/* Styling the images */
+.image-box img {
+  width: 100%;
+  height: 300px;
+  transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.below-img {
+  height: 300px;
+  width: 80%;
+  margin-left: 50px;
+}
+/* Hover effect to zoom in */
+.image-box:hover img {
+  transform: scale(1.05); /* Zoom in by 5% */
+}
+
+/* Dark overlay at the bottom of the image */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 0.5 opacity black overlay */
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Optional: add some margin or padding to space the boxes */
+.image-box-container {
+  margin: 15px 0;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+.vertical-step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Progress line styling */
+.step-line {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 4px;
+  height: 100%;
+  background-color: #ddd;
+  z-index: 1;
+}
+
+/* Each step container with circle and paragraph */
+.step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Circle styling */
+.step-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+/* Paragraph styling */
+.step-content {
+  margin-top: 60px;
+  padding-left: 25px;
+  max-width: 500px;
+  font-size: 16px;
+  color: #333;
+  font-family: Outfit;
+}
+
+.sec-6-content-right h3 {
+  font-family: Outfit;
+  margin-top: 50%;
+}
+.section_6 {
+  background-color: #f5f5f5;
+}
+
+.section_7 {
+  padding-top: 16px;
+  padding-left: 48px;
+}
+
+.section_7 img {
+  height: 20px;
+  align-items: right;
+  text-align: right;
+}
+/*--------------------------------------------------------------------------------------------------------*/
+
+.section_4 {
+  border-bottom: 4px solid black;
+}
+.section_4 h3 {
+  padding-left: 40px;
+}

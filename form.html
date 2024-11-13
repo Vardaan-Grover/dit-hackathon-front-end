@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Upload Form with Tabs</title>
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h2>File Upload Form</h2>
+        <p>Upload a file and get a response</p>
+      </div>
+      <div class="card-content">
+        <!-- Tabs Section -->
+        <div class="tabs">
+          <button class="tab-trigger active" onclick="selectTab('skin')">Skin</button>
+          <button class="tab-trigger" onclick="selectTab('breast')">Breast</button>
+        </div>
+
+        <!-- Form Section (Visible for both tabs) -->
+        <form id="upload-form" onsubmit="handleSubmit(event)">
+          <div class="drop-zone" 
+               ondrop="handleDrop(event)" 
+               ondragover="event.preventDefault()">
+            <input type="file" id="file-upload" onchange="handleFileChange(event)" hidden>
+            <label for="file-upload" class="upload-label">
+              <div class="upload-icon">📁</div>
+              <span id="file-name">Drop a file or click to upload</span>
+            </label>
+          </div>
+          <button type="submit" class="submit-btn" id="upload-btn" disabled>Upload</button>
+        </form>
+      </div>
+      <div class="card-footer">
+        <div id="api-response" class="api-response"></div>
+      </div>
+    </div>
+  </div>
+  <script src="form.js"></script>
+</body>
+</html>
